@@ -1,11 +1,12 @@
-import socket
-import os
-import time
-import matplotlib.pyplot as plt
-import matplotlib as matplotlib
-import pandas as pd
-import json
 import io
+import json
+import os
+import socket
+import time
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
 from utils import read_property
 
 # Server configuration
@@ -17,6 +18,15 @@ CLIENT_TIMEOUT = 5  # Timeout for sending files (in seconds)
 
 
 def menu(socket_id):
+    """
+    Displays the menu and prompts the user for their choice.
+
+    Args:
+        socket_id (str): The ID of the client socket.
+
+    Returns:
+        str: The user's choice.
+    """
     print(f"Your socket id: {socket_id}")
     print("Menu:")
     print("1. Send file")
@@ -28,6 +38,13 @@ def menu(socket_id):
 
 
 def receive_file(client_socket):
+    """
+    Receives a file from the server.
+
+    Args:
+        client_socket (socket.socket): The client socket.
+
+    """
     # Receive file type
     file_type = read_property(client_socket, '|').decode().strip()
     # Receive file size
@@ -53,6 +70,12 @@ def receive_file(client_socket):
 
 
 def process_json_file(file_data):
+    """
+    Processes and displays the contents of a JSON file.
+
+    Args:
+        file_data (bytes): The data of the JSON file.
+    """
     # Convert file data to JSON
     file_content = file_data.decode()
     data = json.loads(file_content)
@@ -63,6 +86,12 @@ def process_json_file(file_data):
 
 
 def process_csv_file(file_data):
+    """
+    Processes and displays the contents of a CSV file.
+
+    Args:
+        file_data (bytes): The data of the CSV file.
+    """
     # Convert file data to a DataFrame
     file_content = file_data.decode()
     df = pd.read_csv(io.StringIO(file_content), dtype='string')
@@ -72,6 +101,12 @@ def process_csv_file(file_data):
 
 
 def process_image_file(file_data):
+    """
+    Processes and displays the contents of an image file.
+
+    Args:
+        file_data (bytes): The data of the image file.
+    """
     # Save the image file
     with open('client_received_image.png', 'wb') as file:
         file.write(file_data)
@@ -84,6 +119,14 @@ def process_image_file(file_data):
 
 
 def send_file(client_socket, file_path, choice):
+    """
+    Sends a file to the server.
+
+    Args:
+        client_socket (socket.socket): The client socket.
+        file_path (str): The path to the file to be sent.
+        choice (str): The user's choice.
+    """
     file_name = os.path.basename(file_path)
     file_type = file_name.split('.')[-1]
     file_type_msg = f"{file_type}|"
@@ -109,6 +152,9 @@ def send_file(client_socket, file_path, choice):
 
 
 def start_client():
+    """
+    Starts the client and establishes a connection with the server.
+    """
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((SERVER_HOST, SERVER_PORT))
     print(f"Connected to server at {SERVER_HOST}:{SERVER_PORT}")
@@ -139,10 +185,9 @@ def start_client():
                         send_file(client_socket, file_path, choice)
                     else:
                         print("File not found!")
-            if check == False:
+            if not check:
                 client_socket.sendall("no".encode())
                 print("Client not found!")
-
 
         elif choice == '2':  # Broadcast file
             file_path = input("Enter the path of the file to broadcast: ")
