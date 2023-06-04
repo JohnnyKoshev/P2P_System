@@ -116,50 +116,35 @@ The client provides the following functionality:
 
 #### Functions 
 
-1. `menu(socket_id)`
-
-Displays the menu and prompts the user for their choice.
-
-- `socket_id` (str): The ID of the client socket.
-
+1. `menu(socket_id)`: Displays the menu and prompts the user for their choice.
+- Args:
+    - `socket_id` (str): The ID of the client socket.
 Returns:
 - `str`: The user's choice.
 
-2. `receive_file(client_socket)`
+2. `receive_file(client_socket)`: Receives a file from the server.
+- Args:
+    - `client_socket` (socket.socket): The client socket.
 
-Receives a file from the server.
+3. `process_json_file(file_data)`: Processes and displays the contents of a JSON file.
+- Args:
+    - `file_data` (bytes): The data of the JSON file.
 
-- `client_socket` (socket.socket): The client socket.
+4. `process_csv_file(file_data)`: Processes and displays the contents of a CSV file.
+- Args:
+    - `file_data` (bytes): The data of the CSV file.
 
-3. `process_json_file(file_data)`
+5. `process_image_file(file_data)`: Processes and displays the contents of an image file.
+- Args:
+    - `file_data` (bytes): The data of the image file.
 
-Processes and displays the contents of a JSON file.
+6. `send_file(client_socket, file_path, choice)`: Sends a file to the server.
+- Args:
+    - `client_socket` (socket.socket): The client socket.
+    - `file_path` (str): The path to the file to be sent.
+    - `choice` (str): The user's choice.
 
-- `file_data` (bytes): The data of the JSON file.
-
-4. `process_csv_file(file_data)`
-
-Processes and displays the contents of a CSV file.
-
-- `file_data` (bytes): The data of the CSV file.
-
-5. `process_image_file(file_data)`
-
-Processes and displays the contents of an image file.
-
-- `file_data` (bytes): The data of the image file.
-
-6. `send_file(client_socket, file_path, choice)`
-
-Sends a file to the server.
-
-- `client_socket` (socket.socket): The client socket.
-- `file_path` (str): The path to the file to be sent.
-- `choice` (str): The user's choice.
-
-7. `start_client()`
-
-Starts the client and establishes a connection with the server.
+7. `start_client()`: Starts the client and establishes a connection with the server.
 
 #### Running the Client
 
