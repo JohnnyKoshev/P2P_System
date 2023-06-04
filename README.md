@@ -287,6 +287,33 @@ Note: Make sure to modify the server configuration parameters (`SERVER_HOST` and
 
 For the packet tracer file itself refer to the `p2p_system.pkt` file located in the root directory.
 
+## Wireshark Analysis
+
+1. Analyzing a file sent in chunks. File type
+
+
+[![Screenshot-2.png](https://i.postimg.cc/1tbm1Vy4/Screenshot-2.png)](https://postimg.cc/zbSZnBb1)
+
+
+2. Analyzing a file sent in chunks. File size
+
+
+[![Screenshot-3.png](https://i.postimg.cc/x8VwPv0G/Screenshot-3.png)](https://postimg.cc/Hc3vY78j)
+
+
+3. Analyzing a file sent in chunks. File contents
+
+
+[![Screenshot-4.png](https://i.postimg.cc/TYCsyMWJ/Screenshot-4.png)](https://postimg.cc/ZCvHgQHW)
+
+
+4. Analyzing a file sent in chunks. Overview of sent chunks
+
+
+[![Screenshot-5.png](https://i.postimg.cc/hvKCjpDY/Screenshot-5.png)](https://postimg.cc/621VbVGV)
+
+
+Based on the provided screenshots, we are able to observe the behavior of the P2P system on the background of the console. Here we are able to see how the files are being sent in chunks from one client to another, analyze the being sent files structure, contents and this kind of corresponding features. Wireshark allows us having a clear understanding of the scene running behind the code.
 
 ## License
 
