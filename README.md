@@ -183,7 +183,7 @@ Note: Make sure to modify the server configuration parameters (`SERVER_HOST` and
 ## Demo Screenshots
 
 1. Turning on the server and connecting 4 clients to it
-[Screenshot-2.png](https://postimg.cc/cvBM42FD)
+[![Screenshot-11.png](https://i.postimg.cc/C1yjnjXG/Screenshot-11.png)](https://postimg.cc/cKmKV8sC)
 
 2. Client menu
 [Screenshot-3.png](https://postimg.cc/WDQ3Rb0x)
