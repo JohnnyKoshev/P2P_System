@@ -116,26 +116,50 @@ The client provides the following functionality:
 
 #### Functions 
 
-1. `menu()`: Displays the client menu and handles user input.
-    - This function displays the available options to the client and prompts the user for their choice. It then calls the corresponding function based on the user's input.
+1. `menu(socket_id)`
 
-2. `send_file(client_socket)`: Sends a file to the server for broadcasting.
-    - Args:
-        - `client_socket` (socket.socket): The socket of the connected client.
-    - This function prompts the user for the file path and sends the file to the server for broadcasting.
+Displays the menu and prompts the user for their choice.
 
-3. `relay_file(client_socket)`: Requests the server to relay a file to another client.
-    - Args:
-        - `client_socket` (socket.socket): The socket of the connected client.
-    - This function prompts the user for the target client ID and file path, and sends the request to the server for file relay.
+- `socket_id` (str): The ID of the client socket.
 
-4. `terminate_connection(client_socket)`: Terminates the connection to the server.
-    - Args:
-        - `client_socket` (socket.socket): The socket of the connected client.
-    - This function sends a termination signal to the server and closes the client socket.
+Returns:
+- `str`: The user's choice.
 
-5. `start_client()`: Starts the client and establishes a connection to the server.
-    - This function creates a client socket and connects to the server at the specified host and port. It displays a welcome message and starts the client menu loop.
+2. `receive_file(client_socket)`
+
+Receives a file from the server.
+
+- `client_socket` (socket.socket): The client socket.
+
+3. `process_json_file(file_data)`
+
+Processes and displays the contents of a JSON file.
+
+- `file_data` (bytes): The data of the JSON file.
+
+4. `process_csv_file(file_data)`
+
+Processes and displays the contents of a CSV file.
+
+- `file_data` (bytes): The data of the CSV file.
+
+5. `process_image_file(file_data)`
+
+Processes and displays the contents of an image file.
+
+- `file_data` (bytes): The data of the image file.
+
+6. `send_file(client_socket, file_path, choice)`
+
+Sends a file to the server.
+
+- `client_socket` (socket.socket): The client socket.
+- `file_path` (str): The path to the file to be sent.
+- `choice` (str): The user's choice.
+
+7. `start_client()`
+
+Starts the client and establishes a connection with the server.
 
 #### Running the Client
 
