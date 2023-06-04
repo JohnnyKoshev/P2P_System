@@ -183,37 +183,70 @@ Note: Make sure to modify the server configuration parameters (`SERVER_HOST` and
 ## Demo Screenshots
 
 1. Turning on the server and connecting 4 clients to it
-[![Screenshot-11.png](https://i.postimg.cc/C1yjnjXG/Screenshot-11.png)](https://postimg.cc/cKmKV8sC)
+
+
+[![Screenshot-2.png](https://i.postimg.cc/NjWNbwmw/Screenshot-2.png)](https://postimg.cc/cvBM42FD)
+
 
 2. Client menu
-[Screenshot-3.png](https://postimg.cc/WDQ3Rb0x)
+
+
+[![Screenshot-3.png](https://i.postimg.cc/gJ06Zxjc/Screenshot-3.png)](https://postimg.cc/WDQ3Rb0x)
+
 
 3. Broadcasting the file (image) from one client to all other clients
-[Screenshot-4.png](https://postimg.cc/jWJxh0Bc)
+
+
+[![Screenshot-4.png](https://i.postimg.cc/VNKJmzRx/Screenshot-4.png)](https://postimg.cc/jWJxh0Bc)
+
 
 4. Saving the image file in order to then visualize it
-[Screenshot-12.png](https://postimg.cc/kD5MgpyT)
+
+
+[![Screenshot-12.png](https://i.postimg.cc/L4tJNdgF/Screenshot-12.png)](https://postimg.cc/kD5MgpyT)
+
 
 5. Visualizing the received image in other 3 clients
-[Screenshot-5.png](https://postimg.cc/yJ9gnrGm) 
+
+
+[![Screenshot-5.png](https://i.postimg.cc/3wfX8sCc/Screenshot-5.png)](https://postimg.cc/yJ9gnrGm)
+
 
 6. Console of the client that received a file 
-[Screenshot-6.png](https://postimg.cc/Z9FYWkgM)
+
+
+[![Screenshot-6.png](https://i.postimg.cc/s2bM0sJs/Screenshot-6.png)](https://postimg.cc/Z9FYWkgM)
+
 
 7. Sending a CSV file from one client to another specified client
-[Screenshot-7.png](https://postimg.cc/G8VfrtKw)
+
+
+[![Screenshot-7.png](https://i.postimg.cc/brwfx22J/Screenshot-7.png)](https://postimg.cc/G8VfrtKw)
+
 
 8. Receiving a CSV file
-[Screenshot-8.png](https://postimg.cc/mtXmGtgd)
+
+
+[![Screenshot-8.png](https://i.postimg.cc/HkHRXMDC/Screenshot-8.png)](https://postimg.cc/mtXmGtgd)
+
 
 9. Receiving a JSON file 
-[Screenshot-9.png](https://postimg.cc/KKn74zmh)
+
+
+[![Screenshot-9.png](https://i.postimg.cc/MGL9PM4H/Screenshot-9.png)](https://postimg.cc/KKn74zmh)
+
 
 10. Closing a connection on the client-side
-[Screenshot-10.png](https://postimg.cc/tYYhWD95)
+
+
+[![Screenshot-10.png](https://i.postimg.cc/DycBVYDt/Screenshot-10.png)](https://postimg.cc/tYYhWD95)
+
 
 11. Server console feedback on the being performed operations
-[Screenshot-11.png](https://postimg.cc/cKmKV8sC)
+
+
+[![Screenshot-11.png](https://i.postimg.cc/C1yjnjXG/Screenshot-11.png)](https://postimg.cc/cKmKV8sC)
+
 
 ## License
 
