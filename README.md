@@ -29,6 +29,46 @@ The server provides the following functionality:
 
 3. Terminate connection: The server terminates the connection with a client.
 
+#### Functions
+
+1. `broadcast_file(client_socket)`: Broadcasts a file to all connected clients except the sender.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the client sending the file.
+    - This function receives the file type and size from the client, followed by the file data. It then iterates through the list of connected clients and sends the file to each client (except the sender).
+
+2. `send_bytes(file_size, file_data, client_socket)`: Sends the file data to the client in chunks.
+    - Args:
+        - `file_size` (int): Size of the file to be sent.
+        - `file_data` (bytes): File data to be sent.
+        - `client_socket` (socket.socket): The socket of the client to send the file to.
+    - This function sends the file data to the client in chunks until all bytes have been sent.
+
+3. `receive_data(file_size, file_data, client_socket)`: Receives the file data from the client.
+    - Args:
+        - `file_size` (str): Size of the file to be received.
+        - `file_data` (bytes): Initial file data (empty).
+        - `client_socket` (socket.socket): The socket of the client sending the file.
+    - This function receives the file data from the client in chunks until all bytes have been received.
+
+4. `relay_file(client_socket)`: Relays a file from one client to another client.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the client requesting the file relay.
+    - This function retrieves the IDs of other clients (excluding the requester) and sends the list of available clients to the requester. It then receives the target client ID, file type, file size, and file data from the requester. Finally, it sends the file data to the target client.
+
+5. `handle_client(client_socket, client_address)`: Handles communication with a client.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the connected client.
+        - `client_address` (tuple): The address of the connected client (IP, port).
+    - This function continuously receives the client's choice and handles the corresponding actions: relaying a file, broadcasting a file, or terminating the connection.
+
+6. `get_socket_id(socket_tuple)`: Retrieves the socket ID from the socket tuple.
+    - Args:
+        - `socket_tuple` (tuple): Tuple containing the IP address and port of the socket.
+    - This function extracts the socket ID from the socket tuple and returns it as an integer.
+
+7. `start_server()`: Starts the server and listens for client connections.
+    - This function creates a server socket, binds it to the specified host and port, and starts listening for client connections. It accepts new client connections and spawns a new thread to handle each client.
+
 #### Running the Server
 
 To start the server, run the `start_server()` function at the end of the `server.py` file.
@@ -73,6 +113,31 @@ The client provides the following functionality:
 3. Receive file: The client receives a file from the server and processes it based on its type (JSON, CSV, or image).
 
 4. Quit: The client terminates the connection with the server.
+
+Apologies for the interruption. Let's continue with the remaining functions in the client component:
+
+#### Functions 
+
+1. `menu()`: Displays the client menu and handles user input.
+    - This function displays the available options to the client and prompts the user for their choice. It then calls the corresponding function based on the user's input.
+
+2. `send_file(client_socket)`: Sends a file to the server for broadcasting.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the connected client.
+    - This function prompts the user for the file path and sends the file to the server for broadcasting.
+
+3. `relay_file(client_socket)`: Requests the server to relay a file to another client.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the connected client.
+    - This function prompts the user for the target client ID and file path, and sends the request to the server for file relay.
+
+4. `terminate_connection(client_socket)`: Terminates the connection to the server.
+    - Args:
+        - `client_socket` (socket.socket): The socket of the connected client.
+    - This function sends a termination signal to the server and closes the client socket.
+
+5. `start_client()`: Starts the client and establishes a connection to the server.
+    - This function creates a client socket and connects to the server at the specified host and port. It displays a welcome message and starts the client menu loop.
 
 #### Running the Client
 
