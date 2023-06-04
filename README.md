@@ -114,8 +114,6 @@ The client provides the following functionality:
 
 4. Quit: The client terminates the connection with the server.
 
-Apologies for the interruption. Let's continue with the remaining functions in the client component:
-
 #### Functions 
 
 1. `menu()`: Displays the client menu and handles user input.
