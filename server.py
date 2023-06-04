@@ -1,8 +1,17 @@
-import socket
-import threading
-import time
+"""""
 
-from utils import read_property
+Name: Komiljon Yuldashev
+Project: P2P System. Server-side
+Description: Provides a needed functionality for the metaserver that serves as a interchange point among the clients
+
+"""""
+
+
+import socket  # for sockets functionality
+import threading  # for processing multiple clients simultaneously
+import time  # for timing
+
+from utils import read_property  # for reading a property until a delimiter
 
 # Server configuration
 SERVER_HOST = '127.0.0.1'  # Server IP address
@@ -37,7 +46,7 @@ def broadcast_file(client_socket):
                     file_size = start_file_size
                     file_type = start_file_type
 
-                    # Send the file type and size to the client
+                    # Send the file type and size to the client with delimiters
                     file_type_msg = f"{file_type}|"
                     file_size_msg = f"{file_size}|"
                     client.sendall(file_type_msg.encode())
@@ -138,8 +147,10 @@ def relay_file(client_socket):
             while retries > 0:
                 try:
                     if get_socket_id(client.getpeername()) == int(target_client):
+                        # adding the delimiter
                         file_type_msg = f"{file_type}|"
                         file_size_msg = f"{file_size}|"
+                        # sending the packets
                         client.sendall(file_type_msg.encode())
                         client.sendall(file_size_msg.encode())
                         send_bytes(file_size, file_data, client)
@@ -189,7 +200,7 @@ def handle_client(client_socket, client_address):
 
 def get_socket_id(socket_tuple):
     """
-    Retrieves the socket ID from the socket tuple.
+    Retrieves the socket ID from the socket tuple, which is a return from socket.getpeername().
 
     Args:
         socket_tuple (tuple): Tuple containing the IP address and port of the socket.
@@ -215,10 +226,14 @@ def start_server():
 
     while True:
         client_socket, client_address = server_socket.accept()
+        # saving the clients in the list
         clients.append(client_socket)
+        # saving the socket ids of the clients in the list
         clients_socket_ids.append(get_socket_id(client_socket.getpeername()))
         client_socket.sendall(str(get_socket_id(client_socket.getpeername())).encode())
+        # making a use of Threads
         client_thread = threading.Thread(target=handle_client, args=(client_socket, client_address))
+        # starting a thread for one client
         client_thread.start()
 
 
