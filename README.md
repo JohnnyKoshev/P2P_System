@@ -247,6 +247,46 @@ Note: Make sure to modify the server configuration parameters (`SERVER_HOST` and
 
 [![Screenshot-11.png](https://i.postimg.cc/C1yjnjXG/Screenshot-11.png)](https://postimg.cc/cKmKV8sC)
 
+## Cisco Packet Tracer Demo
+
+1. System overview. There are 10 devices and one switch that operates as a metaserver among these devices, it supports the whole file-distribution system among end-devices.
+
+
+[![Screenshot-2.png](https://i.postimg.cc/027fs5WW/Screenshot-2.png)](https://postimg.cc/6y5RVKNn)
+
+
+2. Test Case. Sending a packet from the Laptop3 to PC3
+
+
+[![Screenshot-3.png](https://i.postimg.cc/1XQ8cSGX/Screenshot-3.png)](https://postimg.cc/JDp7M9dC)
+
+
+3. Test Case. Sending a packet from the Laptop3 to PC3. Receiving a packet at the switch
+
+
+[![Screenshot-4.png](https://i.postimg.cc/kMsJhW9f/Screenshot-4.png)](https://postimg.cc/dD7chkhy)
+
+
+4. Test Case. Sending a packet from the Laptop3 to PC3. Receiving a packet at PC3
+
+
+[![Screenshot-5.png](https://i.postimg.cc/pLwRnZYX/Screenshot-5.png)](https://postimg.cc/v4tpJ5Np)
+
+
+5. IPv4 Configuration pt. 1
+
+
+[![Screenshot-6.png](https://i.postimg.cc/d1BYpKML/Screenshot-6.png)](https://postimg.cc/gXnQLQ2W)
+
+
+6. IPv4 Configuration pt. 2. As it is obvious the range of the IPv4 address is between 10.11.38.1 - 10.11.38.10
+
+
+[![Screenshot-7.png](https://i.postimg.cc/MHNrrsGn/Screenshot-7.png)](https://postimg.cc/tnd5sNWb)
+
+
+For the packet tracer file itself refer to the `p2p_system.pkt` file located in the root directory.
+
 
 ## License
 
