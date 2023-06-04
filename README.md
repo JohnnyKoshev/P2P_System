@@ -200,7 +200,7 @@ Note: Make sure to modify the server configuration parameters (`SERVER_HOST` and
 [![Screenshot-4.png](https://i.postimg.cc/VNKJmzRx/Screenshot-4.png)](https://postimg.cc/jWJxh0Bc)
 
 
-4. Saving the image file in order to then visualize it
+4. Saving the image file in order to visualize it then
 
 
 [![Screenshot-12.png](https://i.postimg.cc/L4tJNdgF/Screenshot-12.png)](https://postimg.cc/kD5MgpyT)
