@@ -1,6 +1,6 @@
 # P2P System
 
-This repository contains a Peer-to-Peer (P2P) system implemented in Python. The system allows clients to connect to a server and perform various file-related operations, such as sending files to specific clients, broadcasting files to all connected clients, and receiving files from the server.
+This repository contains a Peer-to-Peer (P2P) system implemented in Python. The system allows clients to connect to a server and perform various file-related operations, such as sending files to specific clients, broadcasting files to all connected clients, and receiving files from the other client through the metaserver.
 
 ## Server
 
