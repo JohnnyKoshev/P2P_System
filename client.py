@@ -26,7 +26,7 @@ SERVER_HOST = '127.0.0.1'
 SERVER_PORT = 8000
 
 # Client configuration
-CLIENT_TIMEOUT = 5  # Timeout for sending files (in seconds)
+CLIENT_TIMEOUT = 15.0  # Timeout for sending files (in seconds)
 
 
 def menu(socket_id):
@@ -140,29 +140,34 @@ def send_file(client_socket, file_path, choice):
         file_path (str): The path to the file to be sent.
         choice (str): The user's choice.
     """
-    # obtain file type and insert a delimiter for further sending
-    file_name = os.path.basename(file_path)
-    file_type = file_name.split('.')[-1]
-    file_type_msg = f"{file_type}|"
-    # Send file type with delimiter
-    client_socket.sendall(file_type_msg.encode())
+    try:
+        # set the timeout
+        client_socket.settimeout(CLIENT_TIMEOUT)
+        # obtain file type and insert a delimiter for further sending
+        file_name = os.path.basename(file_path)
+        file_type = file_name.split('.')[-1]
+        file_type_msg = f"{file_type}|"
+        # Send file type with delimiter
+        client_socket.sendall(file_type_msg.encode())
 
-    # Send file size to server with delimiter
-    file_size = os.path.getsize(file_path)
-    file_size_msg = f"{file_size}|"
-    client_socket.sendall(file_size_msg.encode())
+        # Send file size to server with delimiter
+        file_size = os.path.getsize(file_path)
+        file_size_msg = f"{file_size}|"
+        client_socket.sendall(file_size_msg.encode())
 
-    # Send file data
-    with open(file_path, 'rb') as file:
-        start_time = time.time()
-        while True:
-            chunk = file.read(1024)
-            if not chunk:
-                break
-            client_socket.sendall(chunk)
-        end_time = time.time()
+        # Send file data
+        with open(file_path, 'rb') as file:
+            start_time = time.time()
+            while True:
+                chunk = file.read(1024)
+                if not chunk:
+                    break
+                client_socket.sendall(chunk)
+            end_time = time.time()
 
-    print(f"File uploaded in {end_time - start_time:.10f} seconds")
+        print(f"File uploaded in {end_time - start_time:.10f} seconds")
+    except socket.timeout:
+        print("The process of sending has timed out")
 
 
 def start_client():

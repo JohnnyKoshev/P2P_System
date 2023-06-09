@@ -17,6 +17,8 @@ from utils import read_property  # for reading a property until a delimiter
 SERVER_HOST = '127.0.0.1'  # Server IP address
 SERVER_PORT = 8000  # Server port number
 
+SERVER_TIMEOUT = 15.0  # Timeout for sending files (in seconds)
+
 # Client connections
 clients = []  # List to store client sockets
 clients_socket_ids = []  # List to store socket IDs of clients
@@ -43,6 +45,7 @@ def broadcast_file(client_socket):
         while retries > 0:
             try:
                 if client != client_socket:
+                    client.settimeout(SERVER_TIMEOUT)
                     file_size = start_file_size
                     file_type = start_file_type
 
@@ -147,6 +150,7 @@ def relay_file(client_socket):
             while retries > 0:
                 try:
                     if get_socket_id(client.getpeername()) == int(target_client):
+                        client.settimeout(SERVER_TIMEOUT)
                         # adding the delimiter
                         file_type_msg = f"{file_type}|"
                         file_size_msg = f"{file_size}|"
