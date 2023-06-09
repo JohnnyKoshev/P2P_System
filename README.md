@@ -84,7 +84,8 @@ The `client.py` file contains the implementation of the client. It establishes a
 The client code relies on the following dependencies:
 
 - `matplotlib`: Used for visualizing image files.
-- `pandas`: Used for processing and displaying CSV files.
+- `pandas`: Used for processing and displaying (in the console) CSV files.
+- `json`: Used for processing and displaying (in the console) JSON files.
 
 The required dependencies can be installed using the following command:
 
